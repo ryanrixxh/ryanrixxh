@@ -1,0 +1,52 @@
+<!doctype html>
+<lang="en">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <script type="module" src="/src/main.ts"></script>
+    <div x-data="toggle" id="container" class="flex flex-col min-h-screen min-w-screen justify-center items-center">
+        <div id="menu" class="absolute top-1/5">
+            <h1 class="text-6xl">Ryan Richards</h1>
+            <header class="bg-white">
+              <div class="flex h-16 max-w-screen-xl gap-8">
+                <div class="flex flex-1 items-center justify-center">
+                  <nav aria-label="Global" class="md:block">
+                    <ul class="flex items-center gap-6 text-sm">
+                      <li>
+                        <button class="text-gray-500 transition hover:text-gray-500/75" @click="toggle('about')"> About Me</button>
+                      </li>
+
+                      <li>
+                        <button class="text-gray-500 transition hover:text-gray-500/75" @click="toggle('experience')"> Experience </button>
+                      </li>
+
+                      <li>
+                        <button class="text-gray-500 transition hover:text-gray-500/75" @click="toggle('projects')"> Projects <button>
+                      </li>
+
+                      <li>
+                        <button class="text-gray-500 transition hover:text-gray-500/75" @click="toggle('contact')"> Contact </button>
+                      </li>
+                    </ul>
+                  </nav>
+                </div>
+              </div>
+            </header>
+        </div>
+        <div id="content" class="w-150 h-130 flex flex-col justify-start">
+            <div x-show="about" id="about-me" x-data="component">
+                <div x-html="addComponent('about.html')"></div>
+            </div>
+            <div x-show="experience" id="experience" x-data="component">
+                <div x-html="addComponent('experience.html')"></div>
+            </div>
+            <div x-show="projects" id="projects" x-data="component">
+                <div x-html="addComponent('project.html')"></div>
+            </div>
+            <div x-show="contact" id="contact" x-data="component">
+                <div x-html="addComponent('contact.html')"></div>
+            </div>
+        </div>
+    </div>
+  </body>
